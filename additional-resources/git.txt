@@ -1,3 +1,28 @@
 Conventional Commits:
 
 https://www.conventionalcommits.org/en/v1.0.0/
+
+
+https://www.markdownguide.org/cheat-sheet/
+
+
+
+Git comments:
+-------------
+    - git status
+    - git add .
+    - git commit -m "feat:message"
+    - git push origin branch-name
+    - git pull origin branch-name
+    - git reset - revoke staging to un-staging
+    - git diff - 
+
+    - git stash
+        - Move the file recycle bin or hold the file
+    - git stash pop
+        - Revoke the stash file
+    - git branch -M "branchname" 
+        - Rename the branch name above comments
+    - 
+
+    
