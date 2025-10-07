@@ -139,6 +139,110 @@ func maxProfit() {
 	fmt.Println(prifit)
 }
 
+func MajorityElement() {
+	ar := []int{2, 2, 1, 1, 1, 2, 2}
+
+	cnt := 0
+	major := 0
+
+	for _, n := range ar {
+		if cnt == 0 {
+			major = n
+		} else if n == major {
+			cnt++
+		} else {
+			cnt--
+		}
+	}
+
+	fmt.Println(major)
+
+}
+
+func MajorityElementMap(ar []int) int {
+	if len(ar) == 0 {
+		return -1
+	}
+
+	major := make(map[int]int)
+
+	for _, num := range ar {
+		major[num]++
+	}
+
+	fmt.Println("major!!!!!", major)
+
+	n := len(ar)
+	for num, count := range major {
+		if count > n/2 {
+			return num
+		}
+	}
+
+	return -1
+}
+
+// First, choose a candidate
+// from the given set of elements if it is the same as the candidate element, increase the votes.
+// Otherwise, decrease the votes if votes become 0, select another new element as the new candidate.
+func majorityElementOptimal(nums []int) int {
+	count := 0
+	candidate := 0
+	for _, num := range nums {
+		if count == 0 {
+			candidate = num
+		} else if candidate == num {
+			count++
+		} else {
+			count--
+		}
+	}
+
+	finalCount := 0
+	for _, num2 := range nums {
+		if num2 == candidate {
+			finalCount++
+		}
+	}
+
+	if finalCount > len(nums)/2 {
+		return candidate
+	}
+
+	return -1
+
+}
+
+func ProductofArray(ar []int) []int {
+	n := len(ar)
+	if n == 0 {
+		return []int{}
+	}
+
+	// Initialize the result slice with the same size as the input array.
+	res := make([]int, n)
+	// ar := []int{1, 2, 3, 4}
+	// First Pass: Calculate prefix products (left to right).
+	// The prefix product starts at 1.
+	prefixProduct := 1
+	for i := 0; i < n; i++ {
+		res[i] = prefixProduct
+		prefixProduct *= ar[i]
+		fmt.Println("prefixProduct", prefixProduct)
+	}
+
+	// Second Pass: Calculate suffix products (right to left) and combine with prefix products.
+	// The suffix product starts at 1.
+	suffixProduct := 1
+	for i := n - 1; i >= 0; i-- {
+		res[i] *= suffixProduct
+		fmt.Println("res", res)
+		suffixProduct *= ar[i]
+	}
+
+	return res
+}
+
 func main() {
 	// arr := []int{22, 55, 77, 88, 99}
 	// reverseArr(arr, 0, len(arr)-1)
@@ -162,6 +266,21 @@ func main() {
 	// RotateArr(rarr, 3)
 
 	// ExtractInteger()
-	maxProfit()
+	// maxProfit()
+	// MajorityElement()
+
+	// ar2 := []int{3, 3, 4, 2, 4, 4, 2, 4, 4}
+	// result2 := MajorityElementMap(ar2)
+
+	// fmt.Printf("The majority element is: %d\n", result2)
+
+	// result := majorityElementOptimal(ar2)
+
+	// fmt.Printf("The majority element Optimal is: %d\n", result)
+
+	// ProductofArray  ************
+	ar := []int{1, 2, 3, 4}
+	result := ProductofArray(ar)
+	fmt.Println("ProductofArray", result)
 
 }

@@ -11,3 +11,9 @@ Harvard University CS50
 ----------------------- 
 
 https://cs50.harvard.edu/x/
+
+https://youtu.be/4eN3_kbbhSY 
+
+Dynamic Programming:
+
+https://www.wscubetech.com/resources/dsa/longest-common-subsequence 
