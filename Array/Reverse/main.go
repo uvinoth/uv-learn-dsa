@@ -6,17 +6,6 @@ import (
 	"unicode"
 )
 
-func reverseArr(arr []int, start, end int) {
-	for start <= end {
-		temp := arr[start]
-		arr[start] = arr[end]
-		arr[end] = temp
-		start++
-		end--
-	}
-
-}
-
 func matrixArr() {
 	matarr := [][]int{{1, 2}, {3, 4}, {5, 6}}
 
@@ -76,6 +65,17 @@ func Rotateleft() {
 	fmt.Println(ar)
 }
 
+func reverseArr(arr []int, start, end int) {
+	for start <= end {
+		temp := arr[start]
+		arr[start] = arr[end]
+		arr[end] = temp
+		start++
+		end--
+	}
+
+}
+
 func RotateArr(arr []int, k int) {
 	k = k % len(arr)
 	if k < 0 {
@@ -129,14 +129,14 @@ func ExtractInteger() {
 func maxProfit() {
 	ar := []int{7, 1, 5, 3, 6, 4}
 	minSoFor := ar[0]
-	prifit := 0
+	profit := 0
 
 	for i := 1; i < len(ar); i++ {
 		cost := ar[i] - minSoFor
-		prifit = max(prifit, cost)
+		profit = max(profit, cost)
 		minSoFor = min(minSoFor, ar[i])
 	}
-	fmt.Println(prifit)
+	fmt.Println(profit)
 }
 
 func MajorityElement() {
@@ -188,6 +188,7 @@ func MajorityElementMap(ar []int) int {
 func majorityElementOptimal(nums []int) int {
 	count := 0
 	candidate := 0
+
 	for _, num := range nums {
 		if count == 0 {
 			candidate = num
@@ -199,8 +200,8 @@ func majorityElementOptimal(nums []int) int {
 	}
 
 	finalCount := 0
-	for _, num2 := range nums {
-		if num2 == candidate {
+	for _, num := range nums {
+		if num == candidate {
 			finalCount++
 		}
 	}
@@ -227,16 +228,18 @@ func ProductofArray(ar []int) []int {
 	prefixProduct := 1
 	for i := 0; i < n; i++ {
 		res[i] = prefixProduct
+		// fmt.Println("reP", res)
 		prefixProduct *= ar[i]
-		fmt.Println("prefixProduct", prefixProduct)
+		// fmt.Println("prefixProduct", prefixProduct)
 	}
-
+	fmt.Println("resp", res)
 	// Second Pass: Calculate suffix products (right to left) and combine with prefix products.
 	// The suffix product starts at 1.
 	suffixProduct := 1
 	for i := n - 1; i >= 0; i-- {
+		fmt.Println("resp1", res)
 		res[i] *= suffixProduct
-		fmt.Println("res", res)
+		fmt.Println("resS", res)
 		suffixProduct *= ar[i]
 	}
 
@@ -271,9 +274,9 @@ func main() {
 
 	// ar2 := []int{3, 3, 4, 2, 4, 4, 2, 4, 4}
 	// result2 := MajorityElementMap(ar2)
-
 	// fmt.Printf("The majority element is: %d\n", result2)
 
+	// ar2 := []int{3, 3, 4, 2, 4, 4, 2, 4, 4}
 	// result := majorityElementOptimal(ar2)
 
 	// fmt.Printf("The majority element Optimal is: %d\n", result)

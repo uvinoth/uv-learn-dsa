@@ -121,6 +121,7 @@ func findMaxLength(nums []int) int {
 
 		if prevIndex, found := sumIndexMap[pSum]; found {
 			curVal := i - prevIndex
+			fmt.Println("curVal", curVal)
 			if curVal > maxlen {
 				maxlen = curVal
 			}
@@ -129,6 +130,47 @@ func findMaxLength(nums []int) int {
 		}
 	}
 	return maxlen
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func insert(intervals [][]int, newInterval []int) [][]int {
+	var result [][]int
+
+	i := 0
+	n := len(intervals)
+
+	for i < n && intervals[i][1] < newInterval[0] {
+		result = append(result, intervals[i])
+		i++
+	}
+	// interval = [3,5] , new = [4,8]
+	for i < n && intervals[i][0] <= newInterval[1] {
+		newInterval[0] = min(newInterval[0], intervals[i][0])
+		newInterval[1] = max(newInterval[1], intervals[i][1])
+		i++
+	}
+
+	result = append(result, newInterval)
+
+	if i < n {
+		result = append(result, intervals[i])
+		i++
+	}
+
+	return result
 }
 
 func main() {
@@ -153,8 +195,11 @@ func main() {
 	// ******** Maximum sum subarray of size k end ********
 
 	// Contiguous Array
-	arr := []int{0, 1, 1, 1, 1, 1, 0, 0, 0}
-	result := findMaxLength(arr)
-	fmt.Println("Contiguous Array", result)
+	// arr := []int{0, 1, 1, 1, 1, 1, 0, 0, 0}
+	// result := findMaxLength(arr)
+	// fmt.Println("Contiguous Array", result)
+
+	// Insert Interval
+	fmt.Println(insert([][]int{{1, 2}, {3, 5}, {6, 7}, {8, 10}, {12, 16}}, []int{4, 8}))
 
 }
