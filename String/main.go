@@ -244,6 +244,26 @@ func longestPalindrome(s string) int {
 	return length
 }
 
+func isAnagram(s string, t string) bool {
+	if len(s) != len(t) {
+		return false
+	}
+
+	count := make(map[rune]int)
+	for _, ch := range s {
+		count[ch]++
+	}
+
+	for _, ch := range t {
+		count[ch]--
+		if count[ch] < 0 {
+			return false
+		}
+	}
+
+	return true
+}
+
 func main() {
 	// Problem 1
 	// isSubsequence
@@ -315,4 +335,8 @@ func main() {
 	fmt.Println(longestPalindrome("abccccdd")) // Output: 7
 	fmt.Println(longestPalindrome("a"))        // Output: 1
 	fmt.Println(longestPalindrome("Aa"))       // Output: 1
+
+	// Problem 14  Anagram
+	fmt.Println(isAnagram("anagram", "nagaram")) // true
+	fmt.Println(isAnagram("rat", "car"))         // false
 }
