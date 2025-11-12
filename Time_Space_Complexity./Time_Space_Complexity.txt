@@ -1,0 +1,63 @@
+
+Time Complexity:
+----------------
+- Two Conditions:
+    - Eliminate constants.
+    - Retain the highest ordered term.
+- More time less efficiency. If less time more efficiency.
+- The n value increase linearly, time also increase linearly 
+
+Example1 :
+
+    for i := 0; i< 0; i++ {               n+1  
+        for j := 0; j< 0; j++ {           n*(n+1)  
+            fmt.Println("*")                n*n
+        }
+        fmt.Println("*")                    n
+    }
+
+    n+1 + n*(n+1)+n+n
+    n+1 + n2+n+n2+n2
+    3n + 2n2 // Remove constants
+    n+n2 // Retain the highest ordered
+
+    Final : n2 
+
+Example 2:
+    1   2   2           2   3   2
+    1   3   1           1   2   3
+    2   1   1           3   4   5
+
+            8   5   7
+            4   5   6
+            2   4   4
+
+   for i := 0; i< 0; i++ {                                  n+1
+        for j := 0; j< 0; j++ {                             n*(n+1)
+            c[i][j] = 0                                     n*n
+            for k := 0; k< 0; k++ {                         n*n*(n+1)  
+                c[i][j] * c[i][j] * a[i][k] * b[j][k]       n*n*n
+            }
+        }
+   }
+
+   Sum all of as:
+    n+1 + n*(n+1) +  n*n +  n*n*(n+1)  + n*n*n
+    n+1+n2+n+n2+n3+n2+n3 - Remove constants
+    2n+3n2+2n3  Remove constants
+    n+n2+n3 = Retain the highest ordered
+    
+    Final : n3
+
+
+Example 3:
+
+for i := 0 p<= n; i++ {
+    p = p+i
+}
+
+O(log n)   lessthen squer root 
+
+n3 > n2 > n > √n > log n
+
+
