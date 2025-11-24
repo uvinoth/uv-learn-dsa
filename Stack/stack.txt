@@ -1,0 +1,25 @@
+Prefix, Infix, and Postfix Conversion:
+======================================
+
+What is operator and operand?
+
+Operator:
+    ^, *, /, +, -
+
+Operand:
+    A to Z
+    a to z
+    0 to 9
+
+
+Prefix:
+    *+ pq - mm
+
+Infix:
+    (p + q) * (m - n)
+
+Postfix:
+    pq + mn -*
+
+Infix to Postfix Conversion:
+============================

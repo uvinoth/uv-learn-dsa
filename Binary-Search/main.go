@@ -498,7 +498,7 @@ func main() {
 	// cows := 3
 	// fmt.Println(aggressiveCows(stalls, cows)) // Output: 3
 
-	// Problem Allocate Books
+	// Problem BS18, BS19 : 1.Allocate Books, 2.Split Array Largest Sum((#leeCode 410)), 3.Painter's Partition (3 problem same code)
 	//  - Max no of pages allocated is minimum.
 	// 		- Each student get at least one book.
 	// 		- Each book should be a allocated to only one student.
